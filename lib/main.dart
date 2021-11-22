@@ -29,8 +29,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final style = ButtonStyle(
-    padding: MaterialStateProperty.all(
-        const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0)),
+    padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0)),
     backgroundColor: MaterialStateProperty.all(Colors.black),
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
       RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
@@ -63,13 +62,22 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        ],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        height: 75.0,
+        margin: const EdgeInsets.all(20.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(icon: Icon(Icons.home_outlined, color: Colors.white), onPressed: null),
+            IconButton(icon: Icon(Icons.wallet_membership_rounded, color: Colors.white), onPressed: null),
+            IconButton(icon: Icon(Icons.message_outlined, color: Colors.white), onPressed: null),
+            IconButton(icon: Icon(Icons.people_alt_outlined, color: Colors.white), onPressed: null),
+          ],
+        ),
       ),
       body: Container(
         width: double.infinity,
@@ -113,20 +121,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         Spacer(),
                         ElevatedButton(
-                          style: style.copyWith(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Color(0xFFEAEAEA))),
-                          child: Text('Soups',
-                              style: TextStyle(color: Colors.black)),
+                          style: style.copyWith(backgroundColor: MaterialStateProperty.all(Color(0xFFEAEAEA))),
+                          child: Text('Soups', style: TextStyle(color: Colors.black)),
                           onPressed: () {},
                         ),
                         Spacer(),
                         ElevatedButton(
-                          style: style.copyWith(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Color(0xFFEAEAEA))),
-                          child: Text('Salads',
-                              style: TextStyle(color: Colors.black)),
+                          style: style.copyWith(backgroundColor: MaterialStateProperty.all(Color(0xFFEAEAEA))),
+                          child: Text('Grilled', style: TextStyle(color: Colors.black)),
                           onPressed: () {},
                         ),
                       ],
@@ -144,9 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Container(
-                    decoration: BoxDecoration(
-                        color: Color(0xFFEAEAEA),
-                        borderRadius: BorderRadius.circular(100)),
+                    decoration: BoxDecoration(color: Color(0xFFEAEAEA), borderRadius: BorderRadius.circular(100)),
                     // padding: const EdgeInsets.all(50.0),
                     height: 150.0,
                     width: double.infinity,
@@ -159,14 +159,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: [
                             Text(
                               'Chicken Salad',
-                              style: kTextStyle.copyWith(
-                                  fontSize: 20.0, fontWeight: FontWeight.w700),
+                              style: kTextStyle.copyWith(fontSize: 20.0, fontWeight: FontWeight.w700),
                             ),
                             Text('Grilled Chicken Salad'),
                             Text(
                               '\$32.00',
-                              style: kTextStyle.copyWith(
-                                  fontSize: 20.0, fontWeight: FontWeight.w700),
+                              style: kTextStyle.copyWith(fontSize: 20.0, fontWeight: FontWeight.w700),
                             ),
                           ],
                         ),
@@ -195,6 +193,29 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
+            SizedBox(height: 30.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      Text('Mixed Salad', style: kTextStyle.copyWith(fontSize: 20.0, fontWeight: FontWeight.w700)),
+                      Text('Mix Vegetables'),
+                      Text('\$24.00', style: kTextStyle.copyWith(fontSize: 20.0, fontWeight: FontWeight.w700)),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text('Quinoa Salad', style: kTextStyle.copyWith(fontSize: 20.0, fontWeight: FontWeight.w700)),
+                      Text('Spicy with Garlic'),
+                      Text('\$24.00', style: kTextStyle.copyWith(fontSize: 20.0, fontWeight: FontWeight.w700)),
+                    ],
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
